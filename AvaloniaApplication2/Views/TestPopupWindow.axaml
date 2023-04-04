@@ -1,0 +1,69 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:AvaloniaApplication2.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication2.Views.TestPopupWindow"
+        Title="TestPopupWindow">
+
+
+    <Design.DataContext>
+		<viewModels:TestPopupWindowViewModel/>
+	</Design.DataContext>
+
+	<Window.DataContext>
+		<viewModels:TestPopupWindowViewModel/>
+    </Window.DataContext>
+
+	<Panel>
+		<ExperimentalAcrylicBorder IsHitTestVisible="False">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="95"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+			<StackPanel Grid.Row="0" Orientation="Vertical" Margin="0 10 0 0" Spacing="2">
+
+				<StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+
+					<TextBlock TextAlignment="Center" Text="Test1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 0 0 0"
+                               MinWidth = "110"  FontSize="14" Foreground="#FFE4AF"/>
+		
+				</StackPanel>
+
+				<StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+
+					<TextBlock TextAlignment="Center" Text="Test2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 0 0 0"
+                               MinWidth = "110"  FontSize="14" Foreground="#FFE4AF"/>
+				
+
+					<TextBlock TextAlignment="Center" Text="Auto Zoom" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="16 0 0 0"
+                               MinWidth = "110"  FontSize="14" Foreground="#FFE4AF"/>
+
+					<ToggleSwitch Name="ToggleSwitch_SelectAutoZoom"
+                                  MinWidth = "140"
+                                  OnContent="On"
+                                  OffContent="Off"
+                                  Foreground="#FFE4AF"
+                                  Margin="0 0 0 0"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center" />
+				</StackPanel>
+
+			</StackPanel>
+
+		</Grid>
+
+	</Panel>
+</Window>

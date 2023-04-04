@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaApplication2.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication2.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaApplication2">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <StackPanel Orientation="Vertical" Spacing="14">
+
+        <TextBlock Text="Window Create/Destroy Test" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="7">
+            <Button Name="Button_StartTest" Content="Start" MinWidth="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Button Name="Button_StopTest" Content="Stop" MinWidth="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
+            <Button Name="Button_LogClear" Content="Log Clear" MinWidth="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
+        </StackPanel>
+
+        <TextBlock Text="{Binding StringTestMessage0_1}" />
+        <TextBlock Text="{Binding StringTestMessage0_2}" />
+
+        <Border BorderThickness="2"
+                BorderBrush="blue" 
+                BorderLineCap="Round"
+                Width="{Binding $parent.Bounds.Width}"
+                Height="300">
+            <ScrollViewer x:Name="svUDPDataVScroll"
+                          HorizontalScrollBarVisibility="Visible" 
+                          VerticalScrollBarVisibility="Visible"  >
+                <TextBox x:Name="TextBox_TestMessage1" AcceptsReturn="True" 
+                         Text="{Binding StringTestMessage1}"
+                         IsReadOnly="True"
+                         FontWeight="Bold"/>
+
+            </ScrollViewer>
+        </Border>
+
+    </StackPanel>
+</Window>
